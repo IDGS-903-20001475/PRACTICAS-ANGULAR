@@ -1,0 +1,26 @@
+<div class="contenedor">
+    <div class="row">
+        <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" [(ngModel)]="nombre">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Cantidad Compradores</mat-label>
+    <input matInput placeholder="No. Compradores" [(ngModel)]="cantc">
+  </mat-form-field>
+  <h3>Tarjeta Cineco</h3>
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="opcSelect">
+    <mat-radio-button [value]="tc">Si</mat-radio-button >
+    <mat-radio-button [value]="tc">No</mat-radio-button >
+  </mat-radio-group>  
+  <mat-form-field class="example-full-width">
+    <mat-label>Cantidad de Boletos</mat-label>
+    <input matInput placeholder="No. Boletos" [(ngModel)]="cantb">
+  </mat-form-field>
+    </div>
+    <div class="row">
+            <mat-label>Valor a pagar: {{total}}</mat-label>
+    </div>
+    <button mat-raised-button (click)="realizarC()">Procesar</button>
+    <button mat-raised-button>Salir</button>
+</div>
