@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {CinepolisModule} from './modulos/cinepolis.module'
+import {CinepolisModule} from './modulos/cinepolis.module';
+import { ResistenciasModule } from './modulos/resistencias.module';
+import { Distancia2pModule } from './modulos/distancia2p.module'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {CinepolisModule} from './modulos/cinepolis.module'
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    CinepolisModule
+    CinepolisModule,
+    ResistenciasModule,
+    Distancia2pModule
   ],
   providers: [],
   bootstrap: [AppComponent]

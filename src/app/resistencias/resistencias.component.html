@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Calculadora de Resistencias</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Banda 1:</h3>
+        <select class="form-select" [(ngModel)]="banda1Select" [ngStyle]="{ 'background-color': banda1Select }">
+          <option *ngFor="let color of colores" [value]="color" [ngStyle]="{ 'background-color': color }">{{ color }}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <h3>Banda 2:</h3>
+        <select class="form-select" [(ngModel)]="banda2Select" [ngStyle]="{ 'background-color': banda2Select }">
+          <option *ngFor="let color of colores" [value]="color" [ngStyle]="{ 'background-color': color }">{{ color }}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <h3>Banda 3:</h3>
+        <select class="form-select" [(ngModel)]="banda3Select" [ngStyle]="{ 'background-color': banda3Select }">
+          <option *ngFor="let color of colores" [value]="color" [ngStyle]="{ 'background-color': color }">{{ color }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Banda 4:</h3>
+        <select class="form-select" [(ngModel)]="banda4Select" [ngStyle]="{ 'background-color': banda4Select }">
+          <option *ngFor="let color of tolerancia" [value]="color" [ngStyle]="{ 'background-color': color }">{{ color }}</option>
+        </select>
+      </div>       
+    </div>
+    <br>
+    <button class="btn btn-success btn-sm" (click)="calcularResistencias()">Calcular</button>
+       <br> 
+    <div *ngIf="resistencia" class="mt-4">
+      <h2>Resultado:</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Banda 1</th>
+            <th>Banda 2</th>
+            <th>Banda 3</th>
+            <th>Banda 4</th>
+            <th>Resistencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td [ngStyle]="{ 'background-color': banda1Select }"></td>
+            <td [ngStyle]="{ 'background-color': banda2Select }"></td>
+            <td [ngStyle]="{ 'background-color': banda3Select }"></td>
+            <td [ngStyle]="{ 'background-color': banda4Select }">{{ banda4 }}</td>
+            <td>{{ resistencia }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><br>
+  

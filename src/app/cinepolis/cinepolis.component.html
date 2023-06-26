@@ -10,17 +10,20 @@
   </mat-form-field>
   <h3>Tarjeta Cineco</h3>
   <mat-radio-group aria-label="Select an option" [(ngModel)]="opcSelect">
-    <mat-radio-button [value]="tc">Si</mat-radio-button >
-    <mat-radio-button [value]="tc">No</mat-radio-button >
+    <mat-radio-button *ngFor="let op of opc" name="opciones" [value]="op"
+        style="margin:10px;">{{op}}</mat-radio-button>
   </mat-radio-group>  
   <mat-form-field class="example-full-width">
     <mat-label>Cantidad de Boletos</mat-label>
     <input matInput placeholder="No. Boletos" [(ngModel)]="cantb">
   </mat-form-field>
     </div>
+  <br>
     <div class="row">
+            <mat-label>Nombre: {{nom}}</mat-label>
+            <mat-label>Cantidad boletos: {{cantbo}}</mat-label>
             <mat-label>Valor a pagar: {{total}}</mat-label>
     </div>
     <button mat-raised-button (click)="realizarC()">Procesar</button>
-    <button mat-raised-button>Salir</button>
-</div>
+    <button mat-raised-button (click)="limpiar()">Salir</button>  
+</div><br>

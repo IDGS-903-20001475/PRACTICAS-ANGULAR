@@ -6,35 +6,50 @@ import { Component } from '@angular/core';
   styleUrls: ['./cinepolis.component.css']
 })
 export class CinepolisComponent {
-  cantc: number=0;
-  cantb: number=0;
-  total!: number;
-  tc:boolean=false;
+  cantc!: number;
+  cantb!: number;
+  cantbo:number=0;
+  nom:string="";
+  total!: number|string;
+
   nombre!:string;
   opcSelect:string='No';
 
-  validar(){
-    var cantmb=this.cantb *7;
-    if (this.cantb <= cantmb){
-      return this.cantb
+
+  opc=[
+    'Si',
+    'No'
+  ];
+
+  realizarC() {
+    var cantmb = this.cantc * 7;
+    if (this.cantb > cantmb) {
+      this.cantbo=this.cantb;
+      this.total = "No se pueden vender más de 7 boletos por persona";
+    } else {
+      this.total = this.cantb * 12;
+      if (this.cantb > 5) {
+        this.total = this.total - (this.total * 0.15);
+      } else if (this.cantb >= 3 && this.cantb <= 5) {
+        this.total = this.total - (this.total * 0.10);
+      }
+      if (this.opcSelect == 'Si') {
+        this.total = this.total - (this.total * 0.10);
+      }
+      this.cantbo = this.cantb;
+      this.nom = this.nombre;
+      
     }
-        else{
-          return 0
-        }       
-}
-  realizarC(){
-    this.validar();
-    this.total = this.cantb * 12
-        if (this.cantb > 5){
-          this.total = this.total - (this.total * 0.15);
-        }           
-        else if((this.cantb >= 3) && (this.cantb <= 5)){
-          this.total = this.total - (this.total * 0.10)
-        }        
-        if (this.tc == true){
-          this.total = this.total - (this.total * 0.10)         
-        }
-        return this.total       
+    return this.total;
+  }
+
+  limpiar(){
+    this.nom=''
+    this.cantbo=0
+    this.nombre=''
+    this.cantb=0
+    this.cantc=0
+    this.total=''
   }
 }
 
