@@ -69,6 +69,7 @@ export class ResistenciasComponent {
       case 'gold': this.banda4 = " con 5%"; break;
       case 'silver': this.banda4 = " con 10%"; break;
     }
+    
 
     switch(this.banda3Select){
       case 'black': this.resistencia = this.resistencia  + "Ω" + this.banda4; break;

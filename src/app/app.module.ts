@@ -8,10 +8,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CinepolisModule} from './modulos/cinepolis.module';
 import { ResistenciasModule } from './modulos/resistencias.module';
 import { Distancia2pModule } from './modulos/distancia2p.module'
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { Distancia2pModule } from './modulos/distancia2p.module'
     NgbModule,
     CinepolisModule,
     ResistenciasModule,
-    Distancia2pModule
+    Distancia2pModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
