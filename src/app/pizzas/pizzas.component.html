@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>Registrar Pedido</h1>
+
+  <h2>Cliente</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="clienteForm">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Dirección</label>
+      <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
+    </div>
+    <div class="form-group">
+      <label for="fechaCompra">Fecha de compra</label>
+      <input type="date" class="form-control" id="fechaCompra" formControlName="fechaCompra" required>
+    </div>
+
+    <h2>Pedido</h2>
+    <div>
+      <label>Tamaño Pizza:</label><br>
+      <label>
+        <input type="radio" formControlName="tamanio" value="chica"> Chica ($40)
+      </label><br>
+      <label>
+        <input type="radio" formControlName="tamanio" value="mediana"> Mediana ($80)
+      </label><br>
+      <label>
+        <input type="radio" formControlName="tamanio" value="grande"> Grande ($120)
+      </label>
+    </div><br>
+
+    <div>
+      <label>Ingredientes:</label><br>
+      <div class="form-check">
+        <input class="form-check-input" formControlName="jamon" id="jamon" name="jamon" type="checkbox">
+        <label class="form-check-label">Jamón ($10)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" formControlName="piña" id="piña" name="piña" type="checkbox">
+        <label class="form-check-label">Piña ($10)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" formControlName="champiñones" id="champiñones" name="champiñones" type="checkbox">
+        <label class="form-check-label">Champiñones ($10)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="numeroPizzas">Num de Pizzas</label>
+      <input type="number" class="form-control" id="numeroPizzas" formControlName="numeroPizzas" required>
+    </div><br>
+
+    <button class="btn btn-primary" type="submit">Agregar</button>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tamaño</th>
+        <th>Ingredientes</th>
+        <th>Número de Pizzas</th>
+        <th>Subtotal</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pizza of pizzas">
+        <td>{{ pizza.tamanio }}</td>
+        <td>{{ pizza.ingredientes }}</td>
+        <td>{{ pizza.numeroPizzas }}</td>
+        <td>{{ pizza.subtotal }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="quitarpedido(pizzas.indexOf(pizza))">Quitar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="mostrarConfirmacion">
+    <h3>Confirmar Pedido</h3>
+    <p>Costo total del pedido: {{ costoTotal }}</p>
+    <button class="btn btn-primary" (click)="confirmarPedido()">Confirmar</button>
+  </div>
+
+  <div *ngIf="ventasDia.length > 0">
+    <h2>Recibo de ventas del día</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Total Individual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venta of ventasDia">
+          <td>{{ venta.cliente }}</td>
+          <td>{{ venta.total }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><strong>Total Ventas del Día:</strong></td>
+          <td><strong>{{ totalVentasDia }}</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

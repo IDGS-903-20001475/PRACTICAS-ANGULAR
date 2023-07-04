@@ -9,6 +9,7 @@ import {CinepolisModule} from './modulos/cinepolis.module';
 import { ResistenciasModule } from './modulos/resistencias.module';
 import { Distancia2pModule } from './modulos/distancia2p.module'
 import { MenuComponent } from './menu/menu.component';
+import { PizzasModule } from './modulos/pizzas.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MenuComponent } from './menu/menu.component';
     NgbModule,
     CinepolisModule,
     ResistenciasModule,
-    Distancia2pModule  
+    Distancia2pModule,
+    PizzasModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
